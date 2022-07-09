@@ -5,6 +5,7 @@ const storage = require('../daos')
 
 const ProductosDAOArchivo = require('../daos/productos/ProductosDAOArchivo')
 const ProductosDAOMongoDB = require('../daos/productos/ProductosDAOMongoDB')
+const ProductosDAOFirebase = require('../daos/productos/ProductosDAOFirebase')
 
 
 
@@ -12,7 +13,7 @@ const productsRouter = Router()
 
 //const productosDAO = new ProductosDAOArchivo()
 const productosDAO = new ProductosDAOMongoDB()
-
+//const productosDAO = new ProductosDAOFirebase()
 
 productsRouter.get('', async (req,res) =>{
 
@@ -35,6 +36,8 @@ productsRouter.get('', async (req,res) =>{
     return res.json(product)
   })
   
+
+
   productsRouter.post('', async (req, res) => {
     const data = req.body
 
@@ -42,6 +45,8 @@ productsRouter.get('', async (req,res) =>{
    return res.status(201).json(newProduct)
   })
   
+
+
   productsRouter.put('/:id', async (req, res)=>{
   
     const id = (Number(req.params.id))
