@@ -16,8 +16,13 @@ const productosDAO = new ProductosDAOMongoDB()
 
 productsRouter.get('', async (req,res) =>{
 
-     const products = await productosDAO.getAll()
+      products = await productosDAO.getAll()
+     
+     //aca me llega undefined
+     console.log(products)
      return res.json(products)
+     
+     
   })
 
   productsRouter.get('/:id', async (req,res) =>{

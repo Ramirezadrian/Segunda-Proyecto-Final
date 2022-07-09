@@ -7,9 +7,16 @@ class ContenedorMongoDB {
     }
 
     getAll(){
+        
         db
         .then(_ => productModel.find({}))
-        .catch
+        .then(items =>  {
+           console.log(items)
+            return items
+            })
+        .catch(err => console.log(`Error: ${err.message}`))
+        
+        
     }
 
     getById(id){
